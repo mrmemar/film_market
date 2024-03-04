@@ -1,0 +1,35 @@
+<div class="rtl">
+    <section
+        class="elementor-section elementor-top-section elementor-element elementor-section-full_width elementor-section-height-default elementor-section-height-default">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-column w-100 elementor-top-column elementor-element">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-widget elementor-widget-genresCarousel">
+                        <div class="elementor-widget-container">
+                            <div class="container">
+                                <div class="category_title">
+                                    <h3>{{title}}</h3>
+                                </div>
+                                <div class="row">
+                                    <owl-carousel-o [options]="options" class="genres_carousel ">
+                                        @for (item of items; track item.id) {
+                                        <ng-template carouselSlide>
+                                            <div class="genre_card">
+                                                <a routerLink="/list" [queryParams]="{genre:item.id}">
+                                                    <img decoding="async" class="h-custom of-custom"
+                                                        src="https://cdn.sqp.ir/Templates/FilmMarket/assets/img/default_genre.jpg">
+                                                    <div class="genre_card__inner">{{item.name}}</div>
+                                                </a>
+                                            </div>
+                                        </ng-template>
+                                        }
+                                    </owl-carousel-o>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

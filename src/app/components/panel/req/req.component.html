@@ -1,0 +1,64 @@
+<main class="body_panel">
+    <h2>درخواست فیلم و سریال</h2>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="acc_info_  mt-0 mb-3">
+                <div class="acc_info_body">
+                    <form action="https://kelaketfilm.imahmoodzz.ir/panel?action=req" method="post"
+                        class="request_film_form">
+                        <p>
+                            <label for="film_name">نام فیلم و سریال</label>
+                            <input required name="film_name" class="text rcp-input" type="text" value="">
+                        </p>
+                        <div class="mb-0 req_heading">
+                            <label for="type">انتخاب دسته بندی</label>
+                            <div class="req_type_wrap">
+                                <span class="active" data-value="movie">فیلم</span>
+                                <span class="" data-value="series">سریال</span>
+                                <input id="req_type" type="hidden" name="type" value="movie">
+                            </div>
+                        </div>
+                        <p>
+                            <input name="req_submit" type="submit" class="rcp_submit rcp-button_list"
+                                value="ارسال درخواست">
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <h2 class="mt-4 d-block">درخواست های شما</h2>
+            <div class="acc_info_ mt-0 mb-3">
+                <div class="acc_info_body">
+                    <table class="rcp-table" id="rcp-payment-history">
+                        <thead>
+                            <tr>
+                                <th>عنوان</th>
+                                <th>نوع</th>
+                                <th>تاریخ</th>
+                                <th>وضعیت</th>
+                                <th>پیام</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>face off</td>
+                                <td>فیلم</td>
+                                <td>13 دی 1402</td>
+                                <td><span class="table_badge">درحال بررسی</span></td>
+                                <td>پیغامی نیست!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="acc_info_body">
+                    <div class="panel_notfound text-center p-3">
+                        <img class="mb-3"
+                            src="https://kelaketfilm.imahmoodzz.ir/wp-content/themes/KelaketFilm/images/req_notfound.png">
+                        <h3>شما درخواستی ندارید!</h3>
+                        <p>اگر فیلم یا سریالی در سایت موجود نبود درخواست دهید تا در سایت قرار گیرد.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

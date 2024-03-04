@@ -1,0 +1,16 @@
+<div class="rtl">
+    <aside class="widget widget-wp widget-bg col-lg-12">
+        <div class="widget_title">
+            <h3><i class="fa fa-layer-group"></i>{{title}}</h3>
+        </div>
+        <ul>
+            @for (item of items; track $index) {
+            @if ($index < size) { <li>
+                <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">دانلود {{item.title}}</a>
+                </li>
+                }
+
+                }
+        </ul>
+    </aside>
+</div>

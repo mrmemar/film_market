@@ -1,0 +1,35 @@
+<main class="body_panel">
+    <h2>لیست تماشا</h2>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="acc_info_">
+                <header>
+                    <h3>لیست تماشا</h3>
+                </header>
+                <div class="container">
+                    <div class="row">
+                        @for (item of items; track $index) {
+                        <div class="col-xxl-2 col-xl-3 col-lg-3 col-sm-4 col-md-4 col-6">
+                            <div class="posts ">
+                                <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                                    <div>
+                                        <img [src]="item.poster_path"
+                                            class="attachment-post-retina size-post-retina wp-post-image"
+                                            [alt]="item.title" decoding="async" fetchpriority="high">
+                                    </div>
+                                    {{item.title}}
+                                </a>
+                                <div (click)="removeWatchlist(item.id)" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    class="removeFav " aria-label="حدف از لیست تماشا"
+                                    data-bs-original-title="حدف از لیست تماشا">
+                                    <i class="fa fa-trash-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

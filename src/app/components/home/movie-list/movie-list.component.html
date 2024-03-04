@@ -1,0 +1,42 @@
+<div class="rtl">
+    <div class="elementor-element elementor-widget__width-initial elementor-widget elementor-widget-latestPosts">
+        <div class="elementor-widget-container">
+            <div class="category_title">
+                <h3>{{title}}</h3>
+            </div>
+            <div class="row ">
+                @for (item of items; track $index) {
+                @if(size >$index ){
+                <div class="col-xxl-6 col-lg-6 col-md-12">
+                    <article class="post_minimal post2">
+                        <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                            <div [style.background-image]="'url('+item.backdrop_path" class="post_minimal_image">
+                                <img decoding="async" [src]="item.poster_path"
+                                    class="attachment-post_retina size-post_retina wp-post-image h-custom of-custom"
+                                    [alt]="item.title" [title]="item.title">
+                                <div class="post_minimal__rs"></div>
+                                <div class="post_minimal__bs"></div>
+                            </div>
+                        </a>
+                        <div class="post_minimal_details">
+                            <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                                <h2>{{item.title}}</h2>
+                            </a>
+                            <p class="text-justify text-overflow-3">{{item.overview}}</p>
+                            <ul class="post_minimal__badges">
+                                <li class="yellow">
+                                    <i class="fa fa-star"></i>
+                                    <span>{{item.vote_average}}</span>
+                                </li>
+                            </ul>
+                            <a [routerLink]="[item._detailLink,item.id,item._detailTitle]"
+                                class="post_minimal_download">دانلود و تماشا فیلم </a>
+                        </div>
+                    </article>
+                </div>
+                }
+                }
+            </div>
+        </div>
+    </div>
+</div>

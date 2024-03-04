@@ -1,0 +1,32 @@
+<div class="container">
+    <section class="collection_content overflow-hidden position-relative single__content my-3 mb-4">
+        <img class="w-100 position-absolute collection_mask" [src]="item.backdrop_path">
+        <div class="row align-items-center position-relative">
+            <div class="col-xxl-3 col-xl-3 col-lg-4 col-sm-4">
+                <div class="collection_title">
+                    <div class="from">از کالکشن</div>
+                    <div class="name">{{item.name}}</div>
+                    <a href="" class="btn btn-orange">مشاهده همه</a>
+                </div>
+            </div>
+            @for (item of item.parts; track $index) {
+            @if ($index < 3) { <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
+                <div class="related_film_item">
+                    <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                        <img [src]="item.poster_path" class="attachment-rel_item size-rel_item wp-post-image"
+                            [alt]="item.title" [title]="item.title" decoding="async">
+                        <h5>{{item.title}}</h5>
+                        <div class="related_rotten">
+                            <i class="bi bi-hand-thumbs-up"></i>
+                            رضایت
+                        </div>
+                    </a>
+                </div>
+        </div>
+        }
+
+        }
+</div>
+
+</section>
+</div>

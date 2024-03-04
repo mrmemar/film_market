@@ -1,0 +1,307 @@
+<div class="rtl">
+    <div>
+        <div>
+            <section class="casual_single">
+                <div class="casual_single__bg" [style.backgroundImage]="'url('+ item.backdrop_path +')'"></div>
+                <div class="single_hero">
+                    <div class="container">
+                        <div class="row g-0">
+                            <div class="col-lg-3 col-md-5 col-sm-7 col-9 center_image_mobile">
+                                <div class="single_cover">
+                                    <div class="single_cover_wrap">
+                                        <div class="single_cover_wrap_overlay">
+                                            <i class="fa-solid fa-microphone-lines meta_double"></i>
+                                            <i class="fa fa-closed-captioning meta_def"></i>
+                                            <i class="fa-solid fa-eye-slash meta_custom"></i>
+                                        </div>
+                                        <img [src]="item.poster_path"
+                                            class="attachment-post-retina size-post-retina wp-post-image"
+                                            [alt]="item.title" [title]="item.title" decoding="async"
+                                            fetchpriority="high">
+                                        <div class="center_casual_icons">
+                                            <div class="simplefavorite-button stats -favorites "
+                                                (click)="toggleWatchlist(item.id)">
+                                                <span
+                                                    [class]="{'fas':isMarked,'far':!isMarked,'fa-spinner':isLoading,'fa-spin':isLoading,'fa-bookmark':!isLoading}"
+                                                    class="icon -click"></span>
+                                            </div>
+                                            <!-- notification icon -->
+                                            <button class="simplefavorite-button active_movie_notification">
+                                                <span class="far fa-bell"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-7 col-sm-12">
+                                <h1>
+                                    {{item.title}}
+                                    <small>( {{item.release_date}} )</small>
+                                </h1>
+                                <div class="post_genre">
+                                    @for (genre of item.genres; track $index) {
+                                    @if($index){,}
+                                    <a routerLink="/list" [queryParams]="{'genre':genre.id}" rel="tag">
+                                        {{genre.name}}
+                                    </a>
+                                    }
+                                </div>
+
+                                <div class="post_runtime">
+                                    <i class="fa fa-clock"></i>
+                                    مدت زمان: {{item.runtime}} دقیقه
+                                    <span style="margin-right: 10px;">
+                                        کشور:
+                                        @for (country of item.production_countries; track country.iso_3166_1) {
+                                        <a href="/[list]?country=country " rel="tag">
+                                            {{country.name}}
+                                        </a>
+                                        }
+                                    </span>
+                                </div>
+
+                                <div class="post_story">
+                                    <p class="text-justify">{{item.overview}}</p>
+                                </div>
+                                <div class="post_download_cta">
+                                    <button data-bs-toggle="modal" data-bs-target="#trailerModal" class="play_trailer">
+                                        <i class="fa fa-play"></i>
+                                        <span> پخش تریلر</span>
+                                    </button>
+                                </div>
+                                <div class="post_vote">
+                                    <div class="post_vote__buttons  if(!item.IsRated){  _rating_  }  ">
+                                        <i data-rate=" i " class="far fa-star"></i>
+                                        <i class="fas fa-star text-warning">
+                                        </i>
+                                        <i class="far fa-star  text-warning"></i>
+                                    </div>
+
+
+                                    <div class="vote_stats">
+                                        <div class="vote_stats_text"> رضایت کاربران </div>
+                                        <span><span class="_percentRate_"> {{item.vote_average}} </span>%</span>
+                                        <small>(<span class="_countRate_"> {{item.vote_count}} </span> رأی)</small>
+                                    </div>
+
+
+                                    <div class="movie_meta">
+                                        <a target="_blank" href="https://www.imdb.com/title/tt0071562">
+                                            <div class="mixed_imdb d-flex flex-row">
+                                                <div class="imdbLogo">
+                                                    <svg style="width: 29px; height: 12px;">
+                                                        <use xlink:href="#imdb"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="imdbRate_nums_casual">
+                                                    <strong>{{item.vote_average}}</strong>
+                                                    <small>/10</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="movie_score">
+                                            {{item.vote_average}}% <img width="25" height="25"
+                                                src="https://cdn.sqp.ir/Templates/FilmMarket/assets/img/rotten.svg">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="post_actor">
+                                    <div class="actor"><span>کارگردان: </span>
+                                        <a href="" rel="tag">
+                                            <!-- {{item}} -->
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <nav class="casual_tabs">
+                <div class="container">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        @for (tab of tabs; track $index) {
+                        <li class="nav-item" role="presentation" (click)="changeTab(tab.target)">
+                            <button [class]="{'active':tab.target==activeTab}" class="nav-link" [id]="'pills-'+tab.id"
+                                data-bs-toggle="pill" [attr.data-bs-target]="'#pills-'+tab.target" aria-selected="false"
+                                role="tab" tabindex="-1">
+                                <i [class]="['fa', 'fa-'+tab.icon]"></i>
+                                {{tab.title}}
+                            </button>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </nav>
+            <div [appAvtiveTab]="'pills-'+activeTab" class="tab-content casual_tab_content container mt-4 mb-4"
+                id="pills-tabContent">
+                <div class="tab-pane fade" id="pills-dl" role="tabpanel" aria-labelledby="pills-dl-tab" tabindex="0">
+                    <div class="d-flex align-items-center mb-3 justify-content-between dl_info">
+                        <div class="internet">
+                            <i class="fa-solid fa-star"></i>
+                            <span>حجم مصرفی شما عادی محاسبه می‌شود. </span>
+                        </div>
+                        <div class="report">
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa fa-flag"></i>گزارش خرابی لینک
+                            </button>
+                            <button class="share" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                <i class="fa fa-share-nodes"></i>اشتراک گذاری
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="content post2">
+                        <div class="download_item d-flex flex-wrap clearfix">
+                            <div class="dl_info">
+                                <span>زیرنویس فارسی</span>
+                            </div>
+                            <div class="dl_links_wrap">
+                                <a data-bs-toggle="tooltip" data-bs-placement="top"
+                                    href="https://traffic.upera.tv/2766010-11-720.mp4?ref=pK1B"
+                                    class="button button-green" data-bs-original-title=""> package.Title </a>
+                                <!-- subtitle -->
+                                <!-- subtitle -->
+
+                                <!-- dubbed -->
+                                <!-- dubbed -->
+                                <!-- online_player -->
+                                <a target="_blank" href="" class="button_online align-left btn-outline-warning">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor"
+                                        class="bi bi-play-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
+                                        </path>
+                                    </svg>
+                                    <span class="online_text">پخش آنلاین</span>
+                                </a>
+                                <!-- online_player -->
+
+                            </div>
+                        </div>
+                        <!-- start serial -->
+                        <div class="accordion" id="accordionFlushExample">
+                        </div> <!-- ./accordion -->
+                        <!-- end serial -->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-informations" role="tabpanel"
+                    aria-labelledby="pills-informations-tab" tabindex="0">
+
+                    <app-informations [id]="id" [item]="item"></app-informations>
+                </div>
+                <div class="tab-pane fade" id="pills-lists" role="tabpanel" aria-labelledby="pills-lists-tab"
+                    tabindex="0">
+                    @if(item.belongs_to_collection){
+                    <app-collection [id]="item.belongs_to_collection.id"></app-collection>
+                    }
+                </div>
+
+                <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab"
+                    tabindex="0">
+                    <app-comments [id]="id"></app-comments>
+                </div>
+                <div class="tab-pane fade" id="pills-testimontial" role="tabpanel"
+                    aria-labelledby="pills-testimontial-tab" tabindex="0">
+                    <app-faq></app-faq>
+                </div>
+            </div>
+            <app-relateds [id]="id" [size]="6"></app-relateds>
+        </div>
+    </div>
+
+    <div class="modal report_modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-md-down modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">گزارش خرابی لینک</h5>
+                    <button type="button" data-bs-dismiss="modal" class="report_modal--close" aria-label="Close"><i
+                            class="fa-solid fa-x"></i></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="wpcf7 no-js" id="wpcf7-f1393-o1" lang="fa-IR" dir="rtl">
+                        <div class="screen-reader-response">
+                            <p role="status" aria-live="polite" aria-atomic="true"></p>
+                            <ul></ul>
+                        </div>
+                        <form method="post" class="wpcf7-form init" aria-label="فرم تماس" novalidate="novalidate"
+                            data-status="init">
+                            <p>
+                                <label> نام شما<br />
+                                    <span class="wpcf7-form-control-wrap" data-name="your-name">
+                                        <input name="your-name" size="40" class="wpcf7-form-control wpcf7-text"
+                                            aria-required="true" aria-invalid="false" value="" type="text" />
+                                    </span>
+                                </label>
+                            </p>
+                            <p>
+                                <label> توضیحات و لینک خراب را وارد کنید.<br />
+                                    <span class="wpcf7-form-control-wrap" data-name="your-message">
+                                        <textarea name="your-message" cols="40" rows="10"
+                                            class="wpcf7-form-control wpcf7-textarea" aria-required="true"
+                                            aria-invalid="false"></textarea>
+                                    </span>
+                                </label>
+                            </p>
+                            <p>
+                                <input class="wpcf7-form-control wpcf7-submit has-spinner" type="button" value="ثبت" />
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal report_modal share_modal fade" id="shareModal" tabindex="-1" aria-labelledby=" shareModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shareModalLabel">اشتراک گذاری</h5>
+                    <button type="button" data-bs-dismiss="modal" class="report_modal--close" aria-label="Close"><i
+                            class="fa-solid fa-x"></i></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">
+                        با استفاده از روش های پایین می‌توانید این مطلب را برای دوستان خود به اشتراک بگذارید
+                    </p>
+                    <div class="social">
+                        <ul>
+                            <a rel="nofollow noopener" target="_blank"
+                                href="https://api.whatsapp.com/send/?phone&text=http://panjere-media.ir/%d8%af%d8%a7%d9%86%d9%84%d9%88%d8%af-%d9%81%db%8c%d9%84%d9%85-the-shawshank-redemption//&app_absent=0">
+                                <li class="whatsapp"><i class="fa-brands fa-whatsapp"></i></li>
+                            </a>
+                            <a rel="nofollow noopener" target="_blank"
+                                href="https://twitter.com/share?text=دانلود فیلم The Shawshank Redemption&amp;url=http://panjere-media.ir/%d8%af%d8%a7%d9%86%d9%84%d9%88%d8%af-%d9%81%db%8c%d9%84%d9%85-the-shawshank-redemption">
+                                <li class="twitter"><i class="fa-brands fa-twitter"></i></li>
+                            </a>
+                            <a rel="nofollow noopener" target="_blank"
+                                href="https://www.facebook.com/sharer/sharer.php?u=http://panjere-media.ir/%d8%af%d8%a7%d9%86%d9%84%d9%88%d8%af-%d9%81%db%8c%d9%84%d9%85-the-shawshank-redemption">
+                                <li class="facebook"><i class="fa-brands fa-facebook-f"></i></li>
+                            </a>
+                            <a rel="nofollow noopener" target="_blank"
+                                href="https://telegram.me/share/url?url=http://panjere-media.ir/%d8%af%d8%a7%d9%86%d9%84%d9%88%d8%af-%d9%81%db%8c%d9%84%d9%85-the-shawshank-redemption">
+                                <li class="telegram"><i class="fa-brands fa-telegram"></i></li>
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="filed-link">
+                        <label for="shareLink" class="input-prepend">
+                            <i class="fa fa-link"></i>
+                        </label>
+                        <input id="shareLink" type="text" value="http://panjere-media.ir/?p=2156" readonly="">
+
+                        <span class="copy-text-btn" data-toggle="tooltip" data-placement="right" title=""
+                            data-original-title="کپی لینک">
+                            <i class="fa fa-copy"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container after_fe2">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xxl-12">
+            <div class="category_title">
+                <h3>
+                    <i class="fa fa-list"></i>
+                    <small> ساخته شده توسط </small>{{item.created_by}}
+                    <div class="taxonomy-description">
+                        <p>{{item.name}}</p>
+                    </div>
+                </h3>
+            </div>
+
+            <div class="row">
+                @if(item.item_count){
+                @for (item of item.items; track item.id) {
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <div class="film_cat film_cat3">
+                        <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                            <div class="position-relative">
+                                <img fetchpriority="high" [src]="item.poster_path" decoding="async"
+                                    class="attachment-post_retina size-post_retina wp-post-image" [alt]="item.title"
+                                    [title]="item.title" />
+                                <div class="overlay">
+                                    <div class="badges d-flex">
+                                        <span class="genres text-truncate rtl">
+                                            @for (item of item._genresNames; track $index) {
+                                            @if ($index) {,}
+                                            {{item}}
+                                            }
+                                        </span>
+                                    </div>
+                                    <div class="film_cat_title ltr">{{item.title}}</div>
+                                    <div class="cta">
+                                        <span class="badge_type">
+                                        </span>
+                                        <i class="fa icon fa-chevron-left"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                }
+                }@else {
+                <div class="text-center p-5 list_text">
+                    <h6>لیست خالی می‌باشد.</h6>
+                </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>

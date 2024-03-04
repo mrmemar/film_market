@@ -1,0 +1,67 @@
+<div class="related_films_title">
+    <h4>جزئیات و توضیحات</h4>
+</div>
+
+<div class="col-xxl-12">
+    <div class="post_content_single">
+        <div class="awards">
+            <ul>
+                @for (info of informations; track $index) {
+                <li>
+                    <strong>
+                        {{info}} :
+                        @if(getType(item[info])=="object"){
+                        @for (i of get(info); track $index) {
+                        @if ($index) {,}
+                        {{i.name}}
+                        }
+                        }@else {
+                        {{item[info]}}
+                        }
+                    </strong>
+                </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="default_stars mb-3">
+    <div class="stars_header mb-4">
+        <h4><i class="fa fa-star"></i> ستارگان</h4>
+    </div>
+    @if (casts && casts.length) {
+    <owl-carousel-o #owlElement [options]="options" class="single_cast_default ">
+        @for (cast of casts; track cast.id) {
+        <ng-template carouselSlide>
+            <a routerLink="">
+                <img [src]='cast.profile_path' [alt]='cast.name'
+                    onerror="this.onerror=false;this.src='https://cdn.sqp.ir/Templates/FilmMarket/assets/img/no_img.png'" />
+                <div class="stars_title">
+                    {{cast.name}}
+                </div>
+            </a>
+        </ng-template>
+        }
+    </owl-carousel-o>
+    }
+
+</div>
+
+<div class="related_post_blog">
+    <div class="row">
+    </div>
+</div>
+<div class="post__tags">
+    <div (click)="activeHeader = !activeHeader"
+        class="post__tags__header d-flex justify-content-between align-items-baseline">
+        <div><i class="fa fa-tags"></i><strong>برچسب ها</strong></div>
+        <i class="fa fa-chevron-left post__tags__icon"></i>
+    </div>
+    <div class="post__tags__body" sty [style.display]="activeHeader ? 'block' : 'none'">
+        @for (key of keywords; track $index) {
+        <a routerLink="/list" [queryParams]="{'keyword':key.name}" rel="tag"> {{key.name}} </a>
+        }
+    </div>
+</div>

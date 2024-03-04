@@ -1,0 +1,51 @@
+<main class="body_panel">
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="mt-2 mb-3 d-block">آرشیو اعلانات</h2>
+            </div>
+            <div class="notification_page">
+                <div class="notification_page__body mt-4">
+                    <div class="row">
+                        <div class="col-lg-3 mb-4">
+                            <div class="notification__card">
+                                <strong>اطلاعیه در مورد وبسرویس IMBD-API</strong>
+                                <p>با توجه به اشتراکی شدن این وبسرویس با آپدیت قالب به آخرین نسخه از قابلیت دریافت بدون
+                                    واسطه اطلاعات از IMDB ...</p>
+                                <button class="notif__more" data-title="اطلاعیه در مورد وبسرویس IMBD-API"
+                                    data-text="با توجه به اشتراکی شدن این وبسرویس با آپدیت قالب به آخرین نسخه از قابلیت دریافت بدون واسطه اطلاعات از IMDB استفاده نمایید."
+                                    data-bs-toggle="modal" data-bs-target="#showMoreModal">مشاهده متن کامل</button>
+                                <span class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span>5 ماه پیش</span>
+                                    <strong class="notif_action">
+                                        <button class="notification_read" data-bs-custom-class="panel-tooltip"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="علامت گذاری به عنوان خوانده شده" data-id="af5ff386-0a0148fc"><i
+                                                class="fa fa-check"></i>
+                                        </button>
+                                    </strong>
+                                </span>
+                            </div><!-- /.notification__card -->
+                        </div><!-- /.col-lg-3 -->
+                    </div>
+                </div>
+            </div>
+            <!-- Show More Modal -->
+            <div class="modal custom_modal report_modal fade" id="showMoreModal" tabindex="-1"
+                aria-labelledby="showMoreModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="showMoreModalLabel"><i class="fa fa-bell"></i> عنوان اعلان</h5>
+                            <button type="button" data-bs-dismiss="modal" class="report_modal--close"
+                                aria-label="Close"><i class="fa-solid fa-x"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            متن
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

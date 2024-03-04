@@ -1,0 +1,37 @@
+<main class="body_panel">
+    <h2>ارسال تیکت</h2>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="acc_info_  mt-0 mb-3">
+                <div class="acc_info_body">
+                    <form method="post" class="send_ticket_form">
+                        <div class="d-flex gap-3">
+                            <p class="flex-1">
+                                <label for="subject">عنوان تیکت</label>
+                                <input v-model="subject" name="subject" class="text rcp-input" type="text">
+                            </p>
+                            <p class="flex-1">
+                                <label for="dep">دپارتمان</label>
+                                <select v-model="categoryId" style="height: 45px; margin: 5px 0px;" name="dep" id="dep">
+                                    <option disabled selected>انتخاب کنید</option>
+                                    <option v-for="category in categories" :value="category.ID">
+                                        category.CategoryName
+                                    </option>
+                                </select>
+                            </p>
+                        </div>
+                        <p>
+                            <label for="text">توضیحات</label>
+                            <textarea v-model="text" id="text"
+                                style="height: 200px;line-height: 1.7;padding: 10px;text-indent: 0;"
+                                class="text rcp-input" type="text"></textarea>
+                        </p>
+                        <p>
+                            <input type="button" class="rcp_submit rcp-button_list" value="ارسال تیکت">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

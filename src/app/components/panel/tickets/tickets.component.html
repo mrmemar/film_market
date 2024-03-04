@@ -1,0 +1,87 @@
+<main class="body_panel">
+    <div class="row">
+        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6">
+            <div class="info">
+                <div class="icon_wrap yellow_gradient icon_wrap">
+                    <i class="fa fa-ticket-simple"></i>
+                </div>
+                <div class="info_detail">
+                    <div class="title">تیکت های منتظر پاسخ</div>
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6">
+            <div class="info">
+                <div class="icon_wrap green_gradient icon_wrap">
+                    <i class="fa fa-ticket-simple"></i>
+                </div>
+                <div class="info_detail">
+                    <div class="title">تیکت های پاسخ داده شده</div>
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6">
+            <div class="info">
+                <div class="icon_wrap blue_gradient icon_wrap">
+                    <i class="fa fa-ticket-simple"></i>
+                </div>
+                <div class="info_detail">
+                    <div class="title">تیکت های درحال بررسی</div>
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6">
+            <div class="info">
+                <div class="icon_wrap pink_gradient icon_wrap">
+                    <i class="fa fa-ticket-simple"></i>
+                </div>
+                <div class="info_detail">
+                    <div class="title">تیکت های بسته شده</div>
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="mt-2 mb-3 d-block">تیکت های شما</h2>
+                <a :to="{name:'add_ticket'}" class="notif__more mt-0">ارسال تیکت</a>
+            </div>
+            <div class="acc_info_ mt-0 mb-3">
+                <div class="acc_info_body">
+                    <table class="rcp-table" id="rcp-payment-history">
+                        <thead>
+                            <tr>
+                                <th>عنوان</th>
+                                <th>وضعیت</th>
+                                <th>دپارتمان</th>
+                                <th>تاریخ</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>سلام</td>
+                                <td><span class="table_badge">در انتظار پاسخ</span></td>
+                                <td>واحد پشتیبانی </td>
+                                <td>13 دی 1402 - 15:11:44</td>
+                                <td><a href="https://kelaketfilm.imahmoodzz.ir/panel?action=show_ticket&id=56">نمایش</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="panel_notfound text-center p-3">
+                        <img
+                            src="https://kelaketfilm.imahmoodzz.ir/wp-content/themes/KelaketFilm/images/ticket_notfound.png">
+                        <h3>شما تیکتی ندارید.</h3>
+                        <p>درصورتی که نیاز به پشتیبانی دارید تیکت ارسال کنید.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

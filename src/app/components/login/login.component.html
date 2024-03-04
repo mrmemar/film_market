@@ -1,0 +1,40 @@
+<div id="[widget_id]" class="rtl">
+    <div class="register">
+        <div class="manual-register-form">
+            <div class="logo">
+                <a routerLink="/home">
+                    <img [src]="logo" [alt]="title" class="logo_img" height="50px" width="50px" />
+                    <span>{{title}}</span>
+                </a>
+            </div>
+            <form [formGroup]="loginForm" id="ajax_login" class="ajax_form dontSubmitByEnter">
+                <div class="load_overlay">
+                    <div class="lds-ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="input_float_label">
+                    <label for="userLogin">نام کاربری</label>
+                    <input formControlName="userLogin" class="register-input login_username" id="userLogin" type="text">
+                </div>
+
+                <div class="input_float_label">
+                    <label for="passwordLogin">رمزعبور شما</label>
+                    <input formControlName="passwordLogin" type="password" class="register-input login_password"
+                        id="passwordLogin">
+                </div>
+                <div class="mt-4">
+                    <button (click)="login()" [disabled]="!loginForm.valid || disabled" type="button"
+                        class="ajax_from__login submitByEnter">ورود به پنل
+                        کاربری</button>
+                </div>
+                <a class="lost_pass_link" href="/RecoveryPassword"><i class="fas fa-lock-alt"></i> فراموشی رمز </a>
+                <div class="mt-4"><a class="custom_register_button" href="/Register">عضویت در سایت</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

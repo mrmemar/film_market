@@ -1,0 +1,47 @@
+<div class="pagination _paging_">
+    @if (activePage-1 > 0) {
+    <a (click)="_changePage(activePage-1)" [attr.data-pageNumber]="activePage-1" class="next page-numbers "
+        href="javascript:void(0)">
+        <i class="fas fa-chevron-right ml-2"></i>
+        قبلی
+    </a>
+    }
+    @if (activePage > counter) {
+    <a (click)="_changePage(1)" class="page-numbers" href="javascript:void(0)" data-pageNumber="1">1</a>
+    }
+    @if (activePage > counter+1) {
+    <a class="page-numbers" href="javascript:void(0)">...</a>
+    }
+    @if(activePage - 2 > 0){
+    <a (click)="_changePage(activePage-2)" class="page-numbers" href="javascript:void(0)"
+        [attr.data-pageNumber]="activePage-2">{{activePage-2}}</a>
+    }
+    @if(activePage - 1 > 0){
+    <a (click)="_changePage(activePage-1)" class="page-numbers" href="javascript:void(0)"
+        [attr.data-pageNumber]="activePage-1">{{activePage-1}}</a>
+    }
+    <a class="page-numbers active" href="javascript:void(0)" [attr.data-pageNumber]="activePage">{{activePage}}</a>
+    @if (pageCount > activePage+1 ) {
+    <a (click)="_changePage(activePage+1)" class="page-numbers" href="javascript:void(0)"
+        [attr.data-pageNumber]="activePage+1">{{activePage+1}}</a>
+    }
+    @if(pageCount > activePage + 2 ){
+    <a (click)="_changePage(activePage+2)" class="page-numbers" href="javascript:void(0)"
+        [attr.data-pageNumber]="activePage+2">{{activePage+2}}</a>
+    }
+    @if (pageCount-counter > activePage) {
+    <a class="page-numbers" href="javascript:void(0)">...</a>
+    }
+    @if (activePage != pageCount) {
+    <a (click)="_changePage(pageCount)" class="page-numbers" href="javascript:void(0)"
+        [attr.data-pageNumber]="pageCount">{{pageCount}}</a>
+
+    }
+    @if (pageCount > activePage ) {
+    <a (click)="_changePage(activePage+1)" href="javascript:void(0)" class="next page-numbers "
+        [attr.data-pageNumber]="activePage+1">
+        بعدی
+        <i class="fas fa-chevron-left mr-2"></i>
+    </a>
+    }
+</div>

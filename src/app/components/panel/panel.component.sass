@@ -1,0 +1,646 @@
+.sidebar .nav_panel ul li a.active span:before
+  opacity: 1
+
+.logo img
+    height: [h]px
+    width: [w]px
+
+
+#rcp_registration_form
+    padding: 5px
+
+
+.rcp_form fieldset
+    border: none
+    margin: 0
+    padding: 0
+
+
+.rcp_form label
+    display: block
+    cursor: pointer
+
+
+.rcp_form .rcp_gateway_option_label
+    display: inline-block
+    margin-right: 10px
+
+
+.rcp_form input.required
+    color: #000
+
+
+.rcp_form p
+    margin: 0 0 10px
+    min-height: 20px
+
+
+.rcp_form p br
+    display: none
+
+
+.rcp_form ul
+    margin: 0 0 15px
+    padding: 0
+
+
+.rcp_form li
+    list-style: none
+    margin: 0 0 15px
+
+
+.rcp_form #rcp_auto_renew_wrap
+    min-height: 30px
+
+
+.rcp_subscription_level label
+    width: auto
+    display: inline-block
+
+
+.rcp_subscription_level .rcp_level
+    float: left
+    margin: 5px 10px 0 0
+
+
+.rcp_message
+    margin: 0 0 15px
+
+
+.rcp_level_description
+    border-left: 1px solid #f0f0f0
+    padding-left: 8px
+    font-size: 12px
+
+
+.rcp_discount_valid
+    color: #42961e
+
+
+.rcp_discount_invalid
+    color: #b01000
+
+
+.rcp_current_cards_fieldset span
+    display: block
+
+
+div#rcp_card_name_wrap,div#rcp_card_wrap
+    margin-bottom: 10px
+
+
+.rcp-recurring-total td,.rcp-total td
+    border-top: none
+
+
+#order_summary .rcp-ppe-confirm-price
+    text-align: right
+    width: 70px
+
+
+#order_summary tfoot th
+    text-align: right
+
+
+#rcp-sandbox-gateway-test-cards
+    background: #f4f4f4
+    margin: 0 0 1.5em
+    padding: 1em
+
+
+.rcp_form input[type=email],.rcp_form input[type=password],.rcp_form input[type=text]
+    padding: 4px 8px
+    margin: 0
+
+
+.rcp_form input[type=checkbox]
+    float: left
+    margin: 7px 8px 0 0
+
+
+.rcp_form input[type=email]:focus,.rcp_form input[type=password]:focus,.rcp_form input[type=text]:focus
+    border-color: #aaa
+
+
+.rcp_form input.error,.rcp_form input[type=email]:focus.error,.rcp_form input[type=password]:focus.error,.rcp_form input[type=text]:focus.error
+    border-color: #ffa5a5
+    -moz-box-shadow: 0 0 3px #ffbfbf
+    -webkit-box-shadow: 0 0 3px #ffbfbf
+    box-shadow: 0 0 3px #ffbfbf
+
+
+p.rcp_error
+    -webkit-border-radius: 3px
+    -moz-border-radius: 3px
+    border-radius: 3px
+    border: 1px solid #c00
+    margin: 0 0 10px
+    padding: 4px
+    background: #ffebe8
+    color: #333
+
+
+p.rcp_error span,p.rcp_success span
+    margin: 0!important
+    padding: 10px
+
+
+p.rcp_success
+    -webkit-border-radius: 3px
+    -moz-border-radius: 3px
+    border-radius: 3px
+    border: 1px solid #e6db55
+    margin: 0 0 10px
+    padding: 4px
+    background: #ffffe0
+    color: #333
+
+
+@media only screen and (max-width: 480px)
+    .rcp-table
+
+        width: 100%
+
+
+    .rcp-table th
+        display: none
+
+
+    .rcp-table tr td
+        display: block
+        text-align: left
+        padding-left: 50%
+
+
+    .rcp-table td:first-child
+        padding-top: .5em
+
+
+    .rcp-table td:last-child
+        padding-bottom: .5em
+
+
+    .rcp-table td:before
+        content: attr(data-th) ": "
+        font-weight: 700
+        display: inline-block
+        height: 100%
+        line-height: 100%
+        width: 100%
+        margin-left: -100%
+
+
+    .rcp-table td:first-child
+        background-color: rgba(0,0,0,.1)
+
+
+    #order_summary .rcp-ppe-confirm-price
+        text-align: left
+        width: auto
+
+
+
+.StripeElement--focus
+    border-color: #aaa
+
+
+.StripeElement--invalid
+    border-color: #b01000
+
+
+.StripeElement--webkit-autofill
+    background-color: #fefde5!important
+
+
+#rcp-card-element-errors:not(:empty)
+    margin-top: 10px
+
+
+.rcp-modal-wrapper
+    display: none
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0,0,0,.6)
+    z-index: 999
+    padding: 5% 0 0
+    overflow-y: scroll
+    transition: display .5s ease
+    -webkit-transition: display .5s ease
+    -moz-transition: display .5s ease
+
+
+.rcp-register-form-modal-wrapper
+    z-index: 1999!important
+
+
+.rcp-modal
+    background: #f5f5f7
+    box-shadow: 0 12px 30px 0 rgba(0,0,0,.5),inset 0 1px 0 0 hsla(0,0%,100%,.65)
+    margin: 0 auto
+    border-radius: 6px
+    padding: 0
+    position: relative
+    max-width: 450px
+
+
+.rcp-modal-inner
+    padding: 0 0 36px
+
+
+.rcp-modal-header
+    background: #e8e9eb
+    border-top-left-radius: 6px
+    border-top-right-radius: 6px
+    padding: 12px 36px
+    position: relative
+    text-align: center
+
+
+.rcp-modal-close
+    background: #b7b7b7
+    border-radius: 50%
+    color: #fff
+    cursor: pointer
+    font-size: 20px
+    font-weight: 700
+    line-height: 25px
+    height: 25px
+    width: 25px
+    position: absolute
+    top: 6px
+    right: 6px
+    text-align: center
+
+
+.rcp-modal-membership-name
+    font-weight: 700
+
+
+.rcp-modal-body
+    margin: 20px 36px 0
+
+
+.rcp-modal-body input[type=text]
+    display: block
+    width: 100%
+
+
+.rcp-modal #rcp_card_wrap label
+    display: none
+
+
+.rcp-modal-submit
+    display: block
+    text-align: center
+    width: 100%
+
+body
+    -webkit-font-smoothing: antialiased
+    -moz-font-feature-settings: "ss02"
+    -webkit-font-feature-settings: "ss02"
+    font-feature-settings: "ss02"
+
+
+.slider .slider_link:hover
+    background-color: #3f51b5
+
+.post .post_download
+    border-color: #3f51b5
+    color: #3f51b5
+
+
+.post .post_download:hover
+    background-color: #3f51b5
+
+
+.nav-link.active
+    background-color: #3f51b5 !important
+
+
+.search_wrap #searchsubmit
+    background-color: #3f51b5
+
+
+.search_wrap #searchsubmit:hover
+    background-color: #3f51b5
+
+
+.pagination span
+    background-color: #3f51b5
+
+
+.pagination a:hover
+    background-color: #3f51b5
+
+
+.footer .links li:before
+    color: #3f51b5
+
+
+.footer .btn-large i:first-of-type
+    color: #3f51b5
+
+
+
+.user_btn a, .user_btn button
+    background-color: #3f51b5
+
+html.dark .sidebar_active
+    background-color: #3f51b5
+
+.owl-dot
+    background-color: #3f51b5 !important
+
+
+.boxOffice .boxOffice__name span
+    background-color: #3f51b5
+
+.boxOfficeMore
+    color: #3f51b5
+
+
+.boxOfficeMore:hover
+    background: #3f51b524
+    color: #3f51b5
+
+
+.related_post_blog_item .icon span
+    background: #3f51b5
+
+
+
+.single__content .owl-next,
+.single__content .owl-prev
+    background: #3f51b5 !important
+    color: #fff !important
+
+
+
+.post2 .single_cast .owl-next, .post2 .single_cast .owl-prev
+    background: #3f51b5 !important
+    color: #fff !important
+
+
+.post2 .about_box .post_download
+    background: #3f51b5 !important
+
+
+
+.post2 .about_box .post_download:hover
+    /* box-shadow: inset 0px 40px 0 #3f51b5 !important */
+    box-shadow: 0 0 0 4px #3f51b57a !important
+
+.series_week .series_week__header li:hover
+    background: #3f51b5
+
+.download_notice i
+    color: #3f51b5
+
+
+._textAds li a:hover
+    background: #3f51b5
+    box-shadow: 0 0 0 2px #3f51b57a !important
+
+.show_toggle
+    background: #3f51b5
+
+.cat_title a
+    border-color: #3f51b5
+    color: #3f51b5
+
+.cat_title a:hover
+    border-color: #3f51b5
+    color: #fff
+    background: #3f51b5
+
+
+.search_wrap_index #searchsubmit
+    background: #3f51b5
+
+.search_wrap_index #searchsubmit:hover
+    background: #3f51b5
+
+
+.related_post_blog_item a
+    color: #3f51b5
+    padding: 5px 10px
+    border-radius: 3px
+    transition: all 0.3s
+
+
+.reply
+    background: #3f51b5
+
+
+.reply:hover
+    background: #3f51b5
+
+
+.related_post_blog_item a:hover
+    background: #3f51b524
+    color: #3f51b5
+
+
+html.dark ._textAds li a:hover
+    background-color: #3f51b5
+
+.owl-dot.active
+    background-color: #3f51b5 !important
+
+
+html.dark .collection_content
+    background: #fff!important
+    border: 1px solid #e0ebfc
+    box-shadow: 0 10px 15px 0 rgb(220 227 247 / 50)
+
+
+html.dark .collection_title .name
+    color: #6881a9
+
+
+html.dark .collection_mask
+    opacity: 0.1
+
+.boxOffice_item .boxOffice_image .rank
+    background: #3f51b5
+
+
+.series_week .series_week__header li.active
+    background: #3f51b5
+    color: #fff
+
+
+.show_more
+    background: #3f51b5
+
+
+.film_search button
+    background: #3f51b5
+
+.acc_info_ .buy_vip
+    background: #3f51b5
+    border-color: #3f51b5
+
+
+input:checked + .slider
+    background-color: #3f51b5
+
+
+input:focus + .slider
+    box-shadow: 0 0 1px #3f51b5
+
+.custom_list a.author
+    background-color: #3f51b5
+
+.custom_list a.list
+    color: #3f51b5
+
+html.dark .series_week .series_week__header li.active
+    background-color: #3f51b5
+    color: #fff
+
+
+.post2 .post_details .post_meta li strong .icon
+    background-color: #3f51b5
+
+.new_advanced_search .search_type span.active
+    background-color: #3f51b5
+    color: #fff
+
+.adv_search_submit
+    background-color: #3f51b5
+
+.mobile_adv_submit
+    background-color: #3f51b5
+
+.mobile_adv_trigger .filter_icon
+    background-color: #3f51b5
+
+
+.switch-toggle label input:checked + span
+    background-color: #3f51b5
+
+
+html.dark .body_l .acc_info_ table a
+    background-color: #3f51b5
+
+html.dark .body_panel .acc_info_ table a:hover
+    background-color: #3f51b5
+
+
+.vip_modal_center .cta a
+    background-color: #3f51b5
+
+
+.go_top
+    background-color: #3f51b5
+
+
+.comment_spoiler .show_comment
+    background-color: #3f51b5
+
+
+.post_minimal_download
+    background-color: #3f51b5
+
+
+.big_cat_title .star_title_c::before
+    background-color: #3f51b5!important
+
+.post_content_single .awards li i
+    color: #3f51b5
+
+
+.form-submit .submit
+    background-color: #3f51b5!important
+
+.form-submit .submit:hover
+    opacity: .8
+
+
+.sidebar .nav_panel ul li span:before
+    background-color: #3f51b5!important
+
+.submit_auth_2,.submit-reg
+    background: #3f51b5!important
+    border-color: #3f51b5!important
+    background: var(--primaryColor)
+    border: solid 1px var(--primaryColor)
+    width: 100%
+    padding: 10px
+    height: 57px
+    font-size: 17px
+    border-radius: 10px
+    font-weight: 800
+    color: #fff
+    transition: all .4s
+
+
+.film_cat2 .film_overlay2 i
+    background: #3f51b5!important
+
+
+body
+    --plyr-color-main: #3f51b5!important
+
+
+.search_modal_input:focus
+    box-shadow: 0px 0px 0px 4px #3f51b5
+
+
+.single_cover_wrap .simplefavorite-button
+    background: #3f51b5
+
+
+.timeline__date
+    color: #3f51b5!important
+    background: #3f51b53d!important
+    padding: 5px
+    border-radius: 5px
+
+
+.footer_modern .links h3::before
+    background: #3f51b5
+
+
+.footer .links li:before
+    background: #3f51b5
+
+
+.post_blog p a
+    color: #3f51b5
+    font-weight: 700
+
+.post_blog p a:hover
+    color: #3f51b5
+    font-weight: 700
+
+
+.widget_title .nav-link.active::after
+    border-color: transparent transparent #3f51b5 transparent
+
+.post2 .post_details .post_meta li strong .icon::after
+    border-color: transparent #3f51b5 transparent transparent
+
+
+
+.adminNotice
+    background-color: #dd3333
+    background-image: linear-gradient(-135deg, #dd3333, #dd3333)
+    background-image: url(https://kelaketfilm.imahmoodzz.ir/wp-content/uploads/2022/12/51426_5b733674c0062feead05cd28c.jpg)
+    background-position: center center
+    background-repeat: repeat
+    background-size: cover
+
+.post2 .post_image img
+    border-radius: 15px
+    max-width: 100%
+    height: auto
+    object-fit: cover
+
+.sidebar .nav_panel ul li a.active span:before
+  /* background: var(--bg) */
+  opacity: 1

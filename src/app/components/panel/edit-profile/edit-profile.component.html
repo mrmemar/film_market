@@ -1,0 +1,91 @@
+<main class="body_panel">
+    <h2>ویرایش اطلاعات</h2>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="acc_info_">
+                <header>
+                    <h3>ویرایش اطلاعات کاربری</h3>
+                </header>
+                <div class="acc_info_body">
+                    <form method="post">
+                        <div class="col-lg-7 mx-auto py-4">
+                            <fieldset class="row profile_avatar_wrap">
+                                <div class="profile_avatar p-0">
+                                    <img :alt='fullName' :src='avatar' decoding='async' class="w-100 h-100"
+                                        onerror='this.onerror=false;this.src=[errorPic]' />
+                                    <a class="edit_avatar left-0 bottom-0">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <input id="_profilePicFile_" ref="profilePicFile" type="file"
+                                        style="display:none;" />
+                                </div>
+                            </fieldset>
+                            <fieldset class="row">
+                                <div class="col-sm-6">
+                                    <p>
+                                        <label for="firstName">نام</label>
+                                        <input v-model="firstName" id="firstName" class="text rcp-input" type="text" />
+                                    </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>
+                                        <label for="lastName">نام خانوادگی</label>
+                                        <input v-model="lastName" id="lastName" class="rcp-input" type="text" />
+                                    </p>
+                                </div>
+                            </fieldset>
+                            <fieldset class="row">
+                                <div class="col-sm-6">
+                                    <p>
+                                        <label for="email">ایمیل</label>
+                                        <input v-model="email" id="email" class="text rcp-input " type="email" />
+                                    </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>
+                                        <label for="mobile">شماره موبایل</label>
+                                        <input v-model="mobile" id="mobile" class="rcp-input" type="tel" />
+                                    </p>
+                                </div>
+                            </fieldset>
+                            <fieldset class="row">
+                                <div class="col-auto">
+                                    <p class="profiel_edit_info">اگر می‌خواهید رمز عبور خود را تغییر دهید رمز عبور جدید
+                                        را در فیلد زیر وارد کنید.</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>
+                                        <label for="oldPassword">رمز عبور قبلی</label>
+                                        <input v-model="oldPassword" id="oldPassword" class="password rcp-input"
+                                            type="password" />
+                                    </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>
+                                        <label for="newPassword">رمز عبور جدید</label>
+                                        <input v-model="newPassword" id="newPassword" class="password rcp-input"
+                                            type="password" />
+                                    </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>
+                                        <label for="rePassword">تکرار رمز عبور جدید</label>
+                                        <input v-model="rePassword" id="rePassword" class="password rcp-input"
+                                            type="password" />
+                                    </p>
+                                </div>
+
+                            </fieldset>
+                            <fieldset class="row">
+                                <div class="col-auto">
+                                    <input name="edit_profile" id="rcp_profile_editor_submit" type="button"
+                                        class="rcp_submit rcp-button m-0 w-auto" value="ذخیره تغییرات" />
+                                </div>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

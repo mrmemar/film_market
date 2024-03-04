@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/css/fonts.css"
+@import "./assets/css/all.min.css"
+@import "./assets/css/bootstrap.rtl.min.css"
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel'
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default'
+@import 'ngx-toastr/toastr'
+@import 'animate.css/animate.min.css'
+@import "./assets/css/styles.css"
+
+.owl-theme .owl-dots .owl-dot span
+    display: none
+
+.sidebar_carousel2 .owl-next
+    position: absolute !important
+    left: 0 !important
+    top: 50% !important
+    transform: translateY(-50%) !important
+    width: 40px !important
+    height: 40px !important
+    display: flex !important
+    justify-content: center !important
+    align-items: center !important
+    background: var(--bg_lighter)!important
+    border-radius: 50% !important
+    color: #fff !important
+    border-radius: 0 50% 50% 0 !important
+
+.sidebar_carousel2 .owl-prev
+    position: absolute !important
+    right: 0 !important
+    top: 50% !important
+    transform: translateY(-50%) !important
+    width: 40px !important
+    height: 40px !important
+    display: flex !important
+    justify-content: center !important
+    align-items: center !important
+    background: var(--bg_lighter) !important
+    border-radius: 50% !important
+    color: #fff !important
+    border-radius: 50% 0 0 50% !important
+
+
+.toast-container
+    direction: rtl

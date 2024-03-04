@@ -1,0 +1,50 @@
+<div class="container rtl">
+    <footer class="footer footer_minimal">
+        <div class="row">
+            <div class="about col-lg-5 offset-lg-1 col-md-12">
+                <div class="logo">
+                    <a href="">
+                        <img [src]="logo" [alt]="title" class="logo_img">
+                        <span>{{title}}</span>
+                    </a>
+                </div>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها
+                    و متون بلکه
+                    روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
+                    متنوع با هدف بهبود
+                    ابزارهای کاربردی می باشد.</p>
+
+                <div class="d-flex footer_namad gap-3 mt-3 mb-4">
+                </div>
+            </div>
+            <div class="links col-lg-3 col-md-6">
+                <h3><span>[col1]</span></h3>
+                <ul class="menunav">
+                    @for (item of links1; track $index) {
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page w-100">
+                        <a href="">{{item.title}}</a>
+                    </li>
+                    }
+                </ul>
+            </div>
+            <div class="links col-lg-3 col-md-6">
+                <h3><span>[col2]</span></h3>
+                <ul class="menunav ">
+                    @for (item of links2; track $index) {
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page w-100">
+                        <a href="">{{item.title}}</a>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright d-flex justify-content-between align-items-center">
+            [copyright]
+            <div class="social">
+                <ul></ul>
+            </div>
+        </div>
+
+    </footer>
+</div>

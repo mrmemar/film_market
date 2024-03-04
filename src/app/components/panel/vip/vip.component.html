@@ -1,0 +1,172 @@
+<main class="body_panel">
+    <h2>خرید اشتراک</h2>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="acc_info_">
+                <header class="d-flex justify-content-between align-items-center vip_header">
+                    <h3>وضعیت اشتراک</h3>
+                    <div>
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-buy-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-buy" type="button" role="tab" aria-controls="pills-buy"
+                                    aria-selected="true">
+                                    خرید اشتراک
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-history-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-history" type="button" role="tab"
+                                    aria-controls="pills-history" aria-selected="false">
+                                    تاریخچه پرداخت ها
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-buy" role="tabpanel"
+                        aria-labelledby="pills-buy-tab" tabindex="0">
+                        <h3 class="rcp_header">اشتراک خود را تمدید کنید و یا ارتقا دهید </h3>
+                        <form id="rcp_registration_form" class="rcp_form" method="POST">
+                            <fieldset class="rcp_subscription_fieldset">
+                                <p class="rcp_subscription_message">سطح اشتراک خود را انتخاب کنید</p>
+                                <ul id="rcp_subscription_levels">
+                                    <li class="rcp_subscription_level rcp_subscription_level_3">
+                                        <input type="radio" id="rcp_subscription_level_3" class="required rcp_level"
+                                            checked="checked" name="rcp_level" rel="0" value="3" />
+                                        <label for="rcp_subscription_level_3">
+                                            <span class="rcp_subscription_level_name">یک هفته</span>
+                                            <span class="rcp_separator">&nbsp;-&nbsp;</span>
+                                            <span class="rcp_price" rel="0">رایگان</span>
+                                            <span class="rcp_separator">&nbsp;-&nbsp;</span>
+                                            <span class="rcp_level_duration">7&nbsp;روز</span>
+                                            <div class="rcp_level_description"> دسترسی جهت تست کردن دمو
+                                                <br />
+                                                دانلود بی نهایت
+                                                <br />
+                                                سرعت دانلود بالا
+                                                <br />
+                                                استفاده از پخش آنلاین
+                                                <br />
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li class="rcp_subscription_level rcp_subscription_level_2">
+                                        <input type="radio" id="rcp_subscription_level_2" class="required rcp_level"
+                                            name="rcp_level" rel="20000" value="2" />
+                                        <label for="rcp_subscription_level_2">
+                                            <span class="rcp_subscription_level_name">سه ماهه</span>
+                                            <span class="rcp_separator">&nbsp;-&nbsp;</span>
+                                            <span class="rcp_price" rel="20000">20,000 تومان </span>
+                                            <span class="rcp_separator">&nbsp;-&nbsp;</span>
+                                            <span class="rcp_level_duration">90&nbsp;روز</span>
+                                            <div class="rcp_level_description"> دسترسی به آرشیو کامل سایت
+                                                <br />
+                                                دانلود بی نهایت
+                                                <br />
+                                                سرعت دانلود بالا
+                                                <br />
+                                                استفاده از پخش آنلاین
+                                                <br />
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li class="rcp_subscription_level rcp_subscription_level_1">
+                                        <input type="radio" id="rcp_subscription_level_1" class="required rcp_level"
+                                            name="rcp_level" rel="5000" value="1" />
+                                        <label for="rcp_subscription_level_1">
+                                            <span class="rcp_subscription_level_name">یک ماهه</span>
+                                            <span class="rcp_separator">&nbsp;-&nbsp;</span>
+                                            <span class="rcp_price" rel="5000">5,000 تومان </span>
+                                            <span class="rcp_separator">&nbsp;-&nbsp;</span>
+                                            <span class="rcp_level_duration">30&nbsp;روز</span>
+                                            <div class="rcp_level_description"> دسترسی به آرشیو کامل سایت
+                                                <br />
+                                                دانلود بی نهایت
+                                                <br />
+                                                سرعت دانلود بالا
+                                                <br />
+                                                استفاده از پخش آنلاین
+                                                <br />
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                            <div class="rcp_registration_total"></div>
+                            <div class="rcp_gateway_fields">
+                                <input type="hidden" name="rcp_gateway" value="idpay" data-supports-recurring="no"
+                                    data-supports-trial="no" />
+                            </div>
+                            <input type="hidden" id="rcp-registration-type" name="registration_type" value="" />
+                            <input type="hidden" id="rcp-membership-id" name="membership_id" value="0" />
+                            <input type="hidden" id="rcp-payment-id" name="rcp_registration_payment_id" value="0" />
+                            <p id="rcp_submit_wrap">
+                                <input type="hidden" name="rcp_register_nonce" value="234c9ff4e6" />
+                                <input type="submit" name="rcp_submit_registration" id="rcp_submit" class="rcp-button"
+                                    value="خرید اشتراک" />
+                            </p>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab"
+                        tabindex="0">
+                        <div class="responsive_table">
+                            <table class="rcp-table" id="rcp-account-overview">
+                                <thead>
+                                    <tr>
+                                        <th>عضویت</th>
+                                        <th>وضعیت</th>
+                                        <th>تاریخ انقضا / تمدید</th>
+                                        <th>اقدامات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-th="عضویت">یک ماهه</td>
+                                        <td data-th="وضعیت">در انتظار</td>
+                                        <td data-th="تاریخ انقضا / تمدید">بهمن 7, 1402</td>
+                                        <td data-th="اقدامات">
+                                            <a href="" title="تمدید عضویت" class="rcp_sub_details_renew">تمدید
+                                                عضویت</a><br /><a
+                                                href="https://kelaketfilm.imahmoodzz.ir/%d8%ab%d8%a8%d8%aa-%d9%86%d8%a7%d9%85/?registration_type=upgrade&#038;membership_id=287"
+                                                title="عضویت خود را ارتقا دهید یا تغییر دهید"
+                                                class="rcp_sub_details_change_membership">عضویت خود را ارتقا دهید یا
+                                                تغییر دهید</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="rcp-table">
+                                <thead>
+                                    <tr>
+                                        <th>صورتحساب #</th>
+                                        <th>عضویت</th>
+                                        <th>مقدار</th>
+                                        <th>وضعیت پرداخت</th>
+                                        <th>تاریخ</th>
+                                        <th>اقدامات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-th="صورتحساب  #">300</td>
+                                        <td data-th="عضویت">یک ماهه</td>
+                                        <td data-th="مقدار">5,000 تومان </td>
+                                        <td data-th="وضعیت پرداخت">ناموفق</td>
+                                        <td data-th="تاریخ">دی 7, 1402</td>
+                                        <td data-th="اقدامات">
+                                            <a
+                                                href="https://kelaketfilm.imahmoodzz.ir?payment_id=300&#038;rcp-action=download_invoice">مشاهده
+                                                رسید</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,56 @@
+<main class="body_panel">
+    <h2>لیست های سفارشی</h2>
+    <p class="mb-0">در این قسمت لیست های سفارشی بسازید</p>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="acc_info_">
+                <header>
+                    <h3>لیست های سفارشی</h3>
+                </header>
+                <div class="container">
+                    <div class="row">
+                        <div class="text-end">
+                            <a routerLink="create" class="buy_vip btn btn-primary me-0">ساخت لیست جدید</a>
+                        </div>
+                        @if(items.length){
+                        <table class="rcp-table" id="rcp-payment-history">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>نام لیست</th>
+                                    <th>توضیح لیست</th>
+                                    <th>تعداد فیلم های لیست</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (item of items; track item.id) {
+                                <tr>
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.description}}</td>
+                                    <td>{{item.item_count}}</td>
+                                    <td>
+                                        <a [routerLink]="['edit',item.id]">ویرایش فیلم ها</a>
+                                        <a [routerLink]="['show',item.id]" class="bg-warning text-dark">نمایش</a>
+                                        <a href="javascript:void(0)" (click)="remove(item.id)" class="bg-danger">حذف</a>
+                                    </td>
+                                </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        }@else {
+                        <div class="panel_notfound text-center p-3">
+                            <img src="../../../../assets/images/list_notfound.png">
+                            <h3>شما لیستی ندارید.</h3>
+                            <p>می‌توانید لیست های خصوصی و عمومی ایجاد کنید.</p>
+                        </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

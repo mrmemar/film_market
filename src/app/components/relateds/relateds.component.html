@@ -1,0 +1,49 @@
+<section class="related_films">
+    <div class="container">
+        <div class="row">
+            <div class="related_films_title">
+                <i class="fa fa-film"></i>
+                <h4>موارد مشابه</h4>
+            </div>
+            @for(item of relatedItems;track $index){
+            @if(size > $index ) {
+            <div class="col-xl-2 col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="film_cat film_cat3">
+                    <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                        <div class="position-relative">
+                            <img [src]="item.poster_path" class="attachment-post_retina size-post_retina wp-post-image"
+                                alt="" title="" decoding="async">
+                            <div class="overlay">
+                                <div class="badges d-flex">
+                                    <span class="genres text-truncate rtl">
+                                        @for (genre of item._genresNames; track $index) {
+                                        {{genre}}
+                                        @if (!$index) { , }
+                                        }
+                                    </span>
+                                    <span class="imdb_score">
+                                        امتیاز : {{item.vote_average}}
+                                    </span>
+                                </div>
+                                <div class="film_cat_title ltr">
+                                    {{item.title}}
+                                </div>
+                                <div class="cta">
+                                    <span class="badge_type">
+                                        <svg style="width: 20px; height: 20px;">
+                                            <use xlink:href="#mic_doble"></use>
+                                        </svg>
+                                        <span class="">زیرنویس فارسی</span>
+                                    </span>
+                                    <i class="fa icon fa-chevron-left"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            }
+            }
+        </div>
+    </div>
+</section>

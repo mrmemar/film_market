@@ -1,0 +1,29 @@
+<div class="rtl ">
+    <aside class="widget widget-bg col-lg-12">
+        <div class="widget_title">
+            <h3><i class="fa fa-film"></i>{{title}}</h3>
+        </div>
+        <div class="widget_inner">
+            @if (items && items.length) {
+            <owl-carousel-o [options]="options" class=" sidebar_carousel2 ">
+                @for (item of items; track $index) {
+                <ng-template carouselSlide>
+                    <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                        <div class="item2">
+                            <img decoding="async" [src]="item.poster_path"
+                                class="attachment-sidebar-thumb size-sidebar-thumb wp-post-image h-custom of-custom"
+                                [alt]="item.title" [title]="item.title">
+                            <div class="item2__mask">
+                                <div class="p-2">{{item.title}}</div>
+                            </div>
+                        </div>
+                    </a>
+                </ng-template>
+                }
+            </owl-carousel-o>
+            }
+
+        </div>
+
+    </aside>
+</div>

@@ -1,0 +1,95 @@
+<section class="comments">
+    <div class="container">
+        <div class="comments_inner">
+            <div id="comments" class="comments-area">
+                <ol class="comment-list">
+                    @for (item of items; track $index) {
+                    <li class="comment">
+                        <div class="comment_box">
+
+                            <div class="blur d-flex ">
+                                <div class="right_side d-flex">
+                                    <span class="fn author_mobile">{{item.author_details.username}}</span>
+                                    <img [src]=item.author_details.avatar_path class="avatar avatar-60 photo"
+                                        height="60" width="60" [alt]="item.author_details.username" decoding="async"
+                                        onerror="this.onerror=false;this.src='https://cdn.sqp.ir/Images/Icons/Users/anonymous_user_01.png'">
+                                </div>
+                                <div class="left_side d-flex">
+                                    <div class="w-100 d-flex justify-content-between">
+                                        <div class="comment-author vcard">
+                                            <cite class="fn">{{item.author_details.username}}</cite>
+                                        </div>
+                                    </div>
+                                    <div class="w-100">
+                                        <p class="text-justify">{{item.content}}</p>
+                                        <div class=" reply _reply_" data-title="پاسخ به ${ comment.Comment }">
+                                            <a rel="nofollow" class="comment-reply-link " href="javascript:void(0)"
+                                                aria-label="پاسخ به ${ comment.CBName }">
+                                                پاسخ
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment_data d-flex align-items-start flex-column gap-2">
+                                    <div class="like comment_like_handle">
+                                        <button class="comment_like _likeComment_">
+                                            <i class="fa fa-thumbs-up"></i>
+                                            <span class="_countLikeComment_">0</span>
+                                        </button>
+                                    </div>
+                                    <div class="comment-meta commentmetadata">
+                                        <a href="javascript:void(0)">
+                                            {{item.created_at}}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    }
+
+                </ol>
+                <div id="respond" class="comment-respond">
+                    <h3 id="reply-title" class="comment-reply-title">
+                        <span>دیدگاهتان را بنویسید!</span>
+                        <small>
+                            <a rel="nofollow" id="cancel-comment-reply-link" class="_cancelReply_"
+                                href="javascript:void(0)" style="display: none;">
+                                <i class="fa-solid fa-xmark"></i>لغو پاسخ
+                            </a>
+                        </small>
+                    </h3>
+                    <form method="post" class="comment-form">
+                        <input type="hidden" id="commentId_[widget_id]">
+                        <div class="comment-form comment-text">
+                            <textarea id="comment_[widget_id]" placeholder="نظرتان را بنویسید" name="comment" cols="45"
+                                rows="2" required="required" class="form-control"></textarea>
+                        </div>
+                        <div class="d-flex mb-3 gap-3">
+                            <div class="comment-form comment-name ">
+                                <input class="form-control" id="cbname_[widget_id]" placeholder="نام شما" name="author"
+                                    type="text" required="required">
+                            </div>
+                            <div class="comment-form comment-email">
+                                <input class="form-control" id="email_[widget_id]" placeholder="ایمیل شما" name="email"
+                                    type="text" required="required">
+                            </div>
+                        </div>
+                        <div class="mb-2 mt-2">
+                            <div class="switch-toggle">
+                                <label>
+                                    <input name="spoil" type="checkbox">
+                                    <span></span>
+                                </label>
+                                <small>دیدگاه داستان فیلم را اسپویل می‌کند؟</small>
+                            </div>
+                        </div>
+                        <p class="form-submit">
+                            <input type="button" class="submit _addComment_" value="ارسال دیدگاه">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

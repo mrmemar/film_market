@@ -1,0 +1,71 @@
+<div class="rtl">
+    <div class="container-fluid pt-5">
+        <aside class="sidebar d-none d-lg-flex">
+            <div class="panel_sidebar__header d-flex justify-content-between align-items-center">
+                <a routerLink="/">
+                    <img [src]="logo" [alt]="title" class="logo_img" />
+                    <span>{{title}}</span>
+                </a>
+
+                <div class="panel_header__btn">
+                    <button class="d-flex d-lg-none" id="close_panel_nav">
+                        <i class="fa fa-x"></i>
+                    </button>
+                </div>
+            </div>
+            <nav class="nav_panel">
+                <ul>
+                    @for (item of menuItems; track $index) {
+                    <li [class.has-child]="item.children">
+                        <a [routerLink]="[item.link]" routerLinkActive="active">
+                            <i [class]="['fa', 'fa-'+item.icon]"></i>
+                            <span>{{item.title}}</span>
+                        </a>
+                        @if (item.children) {
+                        <ul class="sub-menu" [style.display]="'none'">
+                            @for (item of item.children; track $index) {
+                            <a [routerLink]="[item.link]" routerLinkActive="active">
+                                <i [class]="['fa', 'fa-'+item.icon]"></i>
+                                <span>{{item.title}}</span>
+                            </a>
+                            }
+                        </ul>
+                        }
+                    </li>
+                    }
+                </ul>
+            </nav>
+            <div class="sidebar_bottom">
+                <a routerLink="vip" class="sidebar_cta">خرید اشتراک</a>
+                <!-- <a :to="{name : 'vip'}" class="sidebar_cta"></a> -->
+            </div>
+        </aside>
+        <div class="panel_wrapper">
+            <div class="row">
+                <div class="col-sm-12 gx-5">
+                    <div class="panel_header mb-5">
+                        <div class="d-flex justify-content-between">
+                            <div class="panel_header__user d-flex align-items-center">
+                                <div class="panel_header__user__avatar">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                {{profile.name}}
+                            </div>
+                            <div class="panel_header__btn d-flex gap-3">
+                                <a placement="bottom" ngbTooltip="ارسال تیکت" class="panel-tooltip">
+                                    <i class="fa fa-ticket"></i></a>
+                                <a placement="bottom" ngbTooltip="اعلانات" class="panel-tooltip">
+                                    <i class="fa fa-bell"></i></a>
+                                <a routerLink="vip" placement="bottom" ngbTooltip="خرید اشتراک" class="panel-tooltip">
+                                    <i class="fa fa-gem"></i></a>
+                                <button class="d-flex d-lg-none panel-tooltip" id="toggle_panel_nav" placement="bottom"
+                                    ngbTooltip="بازکردن منو"><i class="fa fa-bars"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

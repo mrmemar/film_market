@@ -1,0 +1,217 @@
+<div class="rtl">
+
+    <div class="float_menu_holder"></div>
+    <div class="float_menu">
+        <div class="logo">
+            <a routerLink="/home">
+                <img [src]="logo" [alt]="title" class="logo_img">
+                <span>[title]</span>
+            </a>
+        </div>
+        <ul class="menunav" id="menu_mobile_[widget_id]_element"></ul>
+        <div class="d-flex py-2 float_menu__cta">
+
+            <div class="user_btn m-2" data-show="[is-login]"></div>
+
+            <div class="theme_switch_btn  my-2 ml-2 mr-0" style=" cursor: pointer;" data-show="[custom-theme]">
+                <button class="night_mode panel_button">
+                    <i class="fa dark_toggle fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <header id="navbar" class="header header_style_2 clearfix">
+        <div class="container d-flex space-bet">
+            <div class="mobile_menu_icon">
+                <i class="fa-regular fa-bars"></i>
+            </div>
+            <div class="mobile_search_icon">
+                <a routerLink="panel/notification" class="mobile_notif_icon">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="count_mobile">10</span>
+                </a>
+                <i class="fa-regular fa-search"></i>
+            </div>
+            <div class="logo">
+                <a routerLink="/home">
+                    <img [src]="logo" [alt]="title" class="logo_img">
+                    <span>{{title}}</span>
+                </a>
+            </div>
+            <nav class="top_nav">
+                <ul id="[widget_id]_menu_element" class="menunav">
+                    @for (item of menuItems; track item.id) {
+                    <li [class.menu-item-has-children]="item.children?.length"
+                        class="menu-item menu-item-type-taxonomy menu-item-object-category ">
+                        <a [routerLink]="item.link">{{item.title}}</a>
+                        @if (item.children?.length) {
+                        <ul class="sub-menu">
+                            @for (item of item.children; track item.id) {
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                                <a [routerLink]="item.link">{{item.title}}</a>
+                            </li>
+                            }
+                        </ul>
+                        }
+                    </li>
+                    }
+                </ul>
+            </nav>
+
+
+            <div class="go-left">
+                <div class="login_register" data-show="[custom-theme]">
+                    <button class="night_mode panel_button" (click)="changeTheme()">
+                        <i class="fa dark_toggle fa-moon" #dark_toggle></i>
+                    </button>
+                </div>
+
+                <div class="login_register">
+                    <button class="panel_button notification_btn">
+                        <i class="fa fa-bell"></i>
+                        <span class="count">0</span>
+                    </button>
+
+                    <div class="notif_items">
+                        <ul>
+                        </ul>
+                        <div class="notif_notfound">
+                            هیچ اعلان جدیدی وجود ندارد. </div>
+                        <a class="show_all_notifs" routerLink="panelnotification">
+                            مشاهده آرشیو اعلانات </a>
+                    </div>
+                </div>
+
+                <div class="login_register">
+                    <button id="searchInput" class="panel_button" (click)="toggleSearch()">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+
+                <div class="login_register" data-show="[is-login]">
+                    @if(isLogin){
+                    <a id="panel_user" class="panel_button" (click)="activePanel = !activePanel">
+                        <i class="fa fa-objects-column"></i>
+                    </a>
+                    <div class="panel_items" [class]="{'active': activePanel}">
+                        <ul>
+                            <li>
+                                <a [routerLink]="['panel']">
+                                    <img [alt]="profile.name" [src]="profile._pic"
+                                        onerror="this.onerror=false;this.src='https://cdn.sqp.ir/Templates/FilmMarket/assets/img/no_img.png'"
+                                        class="avatar avatar-96 photo" decoding="async">
+                                    {{profile.username}}
+                                    <span>مشاهده پنل کاربری <i class="fa-light fa-chevron-left"></i></span>
+                                    <span class="text-danger bold mt-1">اشتراک ندارید</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="panel/vip">
+                                    <i class="fa fa-gem"></i>
+                                    <small>خرید اشتراک</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="panel/lists">
+                                    <i class="fa fa-list"></i>
+                                    <small>لیست های سفارشی</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="panel/tickets">
+                                    <i class="fa fa-ticket"></i>
+                                    <small>تیکت ها</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="panel/req">
+                                    <i class="fa fa-film"></i>
+                                    <small>درخواست فیلم و سریال</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/panel/watchlist">
+                                    <i class="fa fa-bookmark"></i>
+                                    <small>لیست تماشا</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/panel/exit">
+                                    <i class="fa fa-arrow-right-from-bracket"></i>
+                                    <small>خروج از حساب کاربری</small>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    }@else{
+                    <a routerLink="login" class="panel_button wide">ورود / عضویت</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="search_modal" [style.display]="(searchModal) ? 'block' : 'none'">
+        <div class="search_modal_gradient"></div>
+        <div class="container modal_center">
+            <div class="col-xxl-8 col-xl-8 col-sm-12">
+                <div class="search_modal__inner">
+                    <form [formGroup]="searchForm" method="get" class="search_modal__form">
+                        <div class="position-relative search_modal__i">
+                            <input #searchInput formControlName="searchInput" type="text"
+                                class="search_modal_input _suggest_" name="search" value="" placeholder="جستجو کنید">
+                            <button type="submit" aria-label="جستجو" class="search_modal_submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <span id="close_search_modal" (click)="toggleSearch()">بستن</span>
+                    </form>
+                </div>
+                <div class="search_modal_result">
+                    <div id="suggest_[widget_id]_element">
+                        @if (suggestItems.length) {
+                        @for (item of suggestItems; track $index) {
+                        <div class="search_row">
+                            <a class="d-flex" [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                                <div class="search_image">
+                                    <img width="218" height="306" [src]="item.poster_path"
+                                        class="attachment-post-thumb size-post-thumb wp-post-image" alt=""
+                                        decoding="async" loading="lazy">
+                                </div>
+                                <div class="search_row_info">
+                                    <div class="title">دانلود فیلم {{item.title}}</div>
+                                    <!-- <div class="year">1994 | 142 دقیقه</div>
+                                                    <div class="genres">دارم</div>
+                                                    <div class="plot">
+                                                        <p>دو مرد زندانی طی چند سال با هم پیوند می خورند و از طریق اعمال نجابتی مشترک آرامش و در نهایت رستگاری پیدا می کنند.</p>
+                                                    </div> -->
+                                    <div class="watch">
+                                        <i class="fa fa-circle-play"></i>
+                                        دانلود و تماشا
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        }
+                        <div class="center">
+                            <a class="show_more" href="[search]?search=">
+                                مشاهده همه نتایج برای "{{suggest}}"
+                            </a>
+                        </div>
+                        }
+                        @else {
+                        <h6>برای {{suggest}} نتیجه ای یافت نشد.</h6>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="go_top">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+</div>

@@ -1,0 +1,37 @@
+<main class="body_panel">
+    <h2>ساخت لیست جدید</h2>
+    <p class="mb-0">در این قسمت می‌توانید اطلاعات موردنیاز برای ُاخت لیست جدید را وارد کنید.</p>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="acc_info_">
+                <header>
+                    <h3>ساخت لیست جدید</h3>
+                </header>
+                <div class="container acc_info_body">
+                    <div class="row">
+                        <form [formGroup]="createListForm" class="rcp_form" method="post">
+                            <fieldset>
+                                <legend>نام لیست</legend>
+                                <p>
+                                    <label for="list_name">نام لیست</label>
+                                    <input formControlName="name" id="list_name" class="text rcp-input" type="text">
+                                </p>
+                                <p>
+                                    <label for="list_desc">توضیحات لیست</label>
+                                    <input formControlName="description" id="list_desc" class="text rcp-input"
+                                        type="text">
+                                </p>
+                            </fieldset>
+                            <fieldset>
+                                <p id="rcp_profile_submit_wrap">
+                                    <input name="rcp_profile_editor_submit" type="button" (click)="save()"
+                                        class="rcp_submit rcp-button_list" value="مرحله بعد">
+                                </p>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

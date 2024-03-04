@@ -1,0 +1,15 @@
+<div class="testmonial ">
+    @for (item of items; track $index) {
+    <div class="testmonial__item">
+        <h4 class="d-flex justify-content-between" (click)="item.active = !item.active">
+            <div class="d-flex align-items-center">
+                <i class="fa fa-info-circle"></i> {{item.question}}
+            </div>
+            <div><i class="fas fa-chevron-down chevron"></i></div>
+        </h4>
+
+        <p [style.display]="(item.active) ? 'block' : 'none'">{{item.answer}}</p>
+    </div>
+    }
+
+</div>

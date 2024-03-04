@@ -1,0 +1,132 @@
+<main class="body_panel">
+    <h2>ویرایش فیلم های لیست</h2>
+    <div class="row">
+        <div class="col-xx-12">
+            <div class="acc_info_">
+                <header>
+                    <h3>ویرایش فیلم های لیست</h3>
+                </header>
+                <div class="container acc_info_body">
+                    <div class="row">
+                        <form [formGroup]="editForm" class="rcp_form" method="post">
+                            <fieldset>
+                                <legend>نام لیست</legend>
+                                <p>
+                                    <label for="list_name">نام لیست</label>
+                                    <input readonly formControlName="name" id="list_name" class="text rcp-input"
+                                        type="text">
+                                </p>
+                                <p>
+                                    <label for="list_desc">توضیحات لیست</label>
+                                    <textarea readonly formControlName="description" style=" height: auto"
+                                        id="list_desc" class="text rcp-input" type="text" cols="5" rows="3"></textarea>
+                                </p>
+
+                            </fieldset>
+                            <fieldset>
+                                <p class="mb-0">
+                                    <label>فیلم های این لیست</label>
+                                </p>
+                                @if(item.item_count){
+                                <ul class="panel_film_sort ui-sortable" id="sortable">
+                                    @for (item of item.items; track item.id;let idx = $index) {
+                                    <li class="listItem ui-state-default d-flex ui-sortable-handle">
+                                        <figure>
+                                            <img width="100" height="100" [src]="item.poster_path">
+                                        </figure>
+                                        <div class="ps-2 d-flex align-items-start flex-grow-1">
+                                            <div class="d-flex align-items-center">
+                                                <div class="sort_id">{{idx+1}}</div>
+                                                <a [routerLink]="[item._detailLink,item.id,item._detailTitle]">
+                                                    <h2>{{item.title}}</h2>
+                                                    <p class="text-justify text-overflow-3">{{item.overview}}</p>
+                                                </a>
+                                            </div>
+                                            <input class="ids" type="hidden" value="4161" name="ids[]">
+                                        </div>
+                                        <button type="button" class="remove_film_item" (click)="removeMovie(item.id)">
+                                            <i class="fa fa-x"></i>
+                                        </button>
+                                    </li>
+                                    }
+                                </ul>
+                                }@else {
+                                <ul class="panel_film_sort" id="sortable">
+                                    <span class='no_data'>هیچ فیلمی در لیست وجود ندارد اولین فیلم خود را اضافه
+                                        کنید.</span>
+                                </ul>
+                                }
+
+                            </fieldset>
+                            <fieldset>
+                                <p>نام فیلم مورد نطر را در فیلد وارد کنید تا عملیات جستجو انجام شود. </p>
+                                <div class="film_search">
+                                    <div class="flex-grow-1 me-2 position-relative">
+                                        <input (click)="$event.stopPropagation()" type="text" class="w-100"
+                                            id="panel_search_keyword" name="ajax_films" #panel_search_keyword
+                                            placeholder="عنوان فیلم">
+                                        <div class="search_fetch_data position-absolute"
+                                            (click)="$event.stopPropagation()"
+                                            [style.display]="(suggectShow)? 'block':'none'">
+                                            @if(suggectItems.length){
+                                            <ul id="filmItemSelect">
+                                                @for (item of suggectItems; track item.id) {
+                                                <li class="d-flex mb-2" (click)="addMovie(item.id)">
+                                                    <figure class="ms-2">
+                                                        <img width="60" height="70" [src]="item.poster_path">
+                                                    </figure>
+                                                    <figcaption>
+                                                        <h2>{{item.title}}</h2>
+                                                        <p class="text-justify text-overflow-3">{{item.overview}}</p>
+
+                                                    </figcaption>
+                                                </li>
+                                                }
+                                            </ul>
+                                            }
+                                            @else {
+                                            <h6>چیزی پیدا نشد لطفا دوباره تلاش کنید!</h6>
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <!-- <button id="search_film_panel" type="button">جستجو</button> -->
+                                </div>
+                            </fieldset>
+
+                            <!-- <fieldset>
+                                <p id="rcp_profile_submit_wrap">
+                                    <input type="hidden" name="edit_list_nonce" value="b3ec1800b7">
+                                    <input name="edit_film_list_item" type="submit" class="rcp_submit rcp-button_list"
+                                        value="ذخیره">
+                                </p>
+                            </fieldset> -->
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="films_template" style="display:none!important">
+            <li class="listItem ui-state-default d-flex">
+                <figure>
+                    <img width="100" height="100" src="">
+                </figure>
+                <div class="ps-2 d-flex align-items-start flex-grow-1">
+                    <div class="d-flex align-items-center">
+                        <div class="sort_id">1</div>
+                        <a href="http://panjere-media.ir/panel">
+                            <h2>پنل کاربری</h2>
+                        </a>
+                    </div>
+                    <input class="ids" type="hidden" value="" name="ids[]">
+                </div>
+                <button type="button" class="remove_film_item">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </li>
+        </div>
+    </div>
+</main>
